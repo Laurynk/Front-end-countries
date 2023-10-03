@@ -8,9 +8,11 @@ export default function App() {
   const [filter, setFilter] = useState("all");
   const [sortOrder, setSortOrder] = useState(">");
 
-  function select(countries, option) {
-    if (option === "all" || option === "1") {
+ function select(countries, option) {
+    if (option === "all") {
       return countries;
+    } else if (option === "1") {
+      return countries.filter((country) => country.population < 100000000);
     } else if (option === "100m") {
       return countries.filter((country) => country.population >= 100000000);
     } else if (option === "200m") {
